@@ -4,8 +4,8 @@ async function getWeather() {
     alert("Please enter a city name.");
     return;
   }
-  const response = await fetch(`/api/weather?city=${city}`);
-  const data = await response.json();
+  const res = await fetch(`/api/weather?city=${encodeURIComponent(city)}`);
+  const data = await res.json();
   if (data.error) {
     document.getElementById("result").innerHTML = `<p>${data.error}</p>`;
   } else {

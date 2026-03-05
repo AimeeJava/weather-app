@@ -26,5 +26,6 @@ router.get("/weather", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+app.use("/.netlify/functions/api", router);
 app.use("/api", router);
 export const handler = serverless(app);
